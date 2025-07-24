@@ -98,9 +98,8 @@ h1 {
 
 /* ====== Contenedor principal de malla ====== */
 #malla {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
   padding: 1rem;
 }
