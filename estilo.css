@@ -87,6 +87,13 @@ h1 {
   padding: 1rem;
   justify-content: center;
 }
+#malla > div {
+  flex: 1 1 300px; /* mínimo 300px, pero puede crecer */
+  max-width: 100%;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
 /* Barra de progreso */
 #progreso-container {
   width: 100%;
