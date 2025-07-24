@@ -132,13 +132,5 @@ document.getElementById("reiniciarBtn").addEventListener("click", () => {
   renderizar();
 });
 
-function actualizarProgreso() {
-  const total = materias.length;
-  const aprobadas = materias.filter(m => m.estado === "aprobada").length;
-  const porcentaje = Math.round((aprobadas / total) * 100);
-
-  document.getElementById("barraProgreso").style.width = porcentaje + "%";
-  document.getElementById("porcentajeTexto").textContent = porcentaje + "%";
-}
 
 renderizar();
