@@ -1,26 +1,28 @@
 :root {
-  --fondo: #fdf6fb;
-  --texto: #2a003f;
-  --materia: #ffe6f2;
-  --materia-aprobada: #c28fef;
-  --materia-bloqueada: #e0e0e0;
-  --tooltip-bg: #9333ea;
-  --boton-bg: #d8b4fe;
-  --boton-texto: #3b0764;
-  --fuente: 'Poppins', sans-serif;
+  fondo: #fdf6fb;
+  texto: #2a003f;
+  materia: #ffe6f2;
+  materia-aprobada: #c28fef;
+  materia-bloqueada: #e0e0e0;
+  tooltip-bg: #9333ea;
+  boton-bg: #d8b4fe;
+  boton-texto: #3b0764;
+  fuente: 'Poppins', sans-serif;
 }
 
+/* Modo oscuro */
 body.modo-oscuro {
-  --fondo: #1c1b2f;
-  --texto: #ffffff;
-  --materia: #3b185f;
-  --materia-aprobada: #a855f7;
-  --materia-bloqueada: #555;
-  --tooltip-bg: #c084fc;
-  --boton-bg: #6b21a8;
-  --boton-texto: #fff;
+  fondo: #1c1b2f;
+  texto: #ffffff;
+  materia: #3b185f;
+  materia-aprobada: #a855f7;
+  materia-bloqueada: #555;
+  tooltip-bg: #c084fc;
+  boton-bg: #6b21a8;
+  boton-texto: #fff;
 }
 
+/* Estilos generales */
 body {
   font-family: var(--fuente);
   background-color: var(--fondo);
@@ -32,17 +34,34 @@ body {
 
 header {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem;
   background-color: var(--materia-aprobada);
   color: white;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+/* Controles */
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .controles button {
@@ -51,10 +70,9 @@ h1 {
   border: none;
   border-radius: 6px;
   padding: 0.5rem 1rem;
-  margin-left: 0.5rem;
-  cursor: pointer;
   font-weight: bold;
   font-size: 1rem;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
@@ -63,59 +81,52 @@ h1 {
   color: white;
 }
 
-.progreso-container {
-  position: relative;
-  height: 20px;
-  margin: 1rem 2rem;
-  background-color: #e5e5e5;
-  border-radius: 10px;
-  overflow: hidden;
+/* Barra de progreso */
+#progreso-container {
+  width: 100%;
+  background-color: #e5e7eb;
+  padding: 0.5rem;
 }
 
-.progreso-barra {
-  height: 100%;
-  width: 0%;
+#progreso-barra {
+  height: 24px;
   background-color: var(--materia-aprobada);
-  transition: width 0.3s;
-}
-
-.progreso-texto {
-  position: absolute;
-  right: 10px;
-  top: 0;
-  color: black;
-  font-size: 0.9rem;
-  line-height: 20px;
-}
-
-.grid {
+  width: 0%;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  transition: width 0.4s ease;
+  font-weight: bold;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Grid de materias */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1rem;
   padding: 1.5rem;
-  overflow-x: auto;
 }
 
-.grid > div {
-  flex: 1;
-  min-width: 200px;
-}
-
+/* Tarjeta de materia */
 .materia {
   background-color: var(--materia);
   padding: 1rem;
   border-radius: 12px;
   position: relative;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
   text-align: center;
   font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .materia:hover {
   transform: scale(1.03);
 }
 
+/* Estados */
 .materia.aprobada {
   background-color: var(--materia-aprobada);
   color: white;
@@ -127,6 +138,7 @@ h1 {
   cursor: not-allowed;
 }
 
+/* Tooltip */
 .tooltip {
   visibility: hidden;
   opacity: 0;
