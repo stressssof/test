@@ -69,31 +69,29 @@ h1 {
 }
 
 /* ====== Barra de progreso ====== */
-#progreso-container {
-  width: 100%;
-  padding: 1rem 2rem;
-  box-sizing: border-box;
-}
-
-#progreso-barra {
+#barraProgresoContainer {
+  width: 80%;
   height: 20px;
-  background-color: #e0e0e0;
+  margin: 1rem auto;
+  background-color: #ccc;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 }
 
-#progreso-completado {
+#barraProgreso {
   height: 100%;
   width: 0%;
-  background-color: #9333ea;
-  border-radius: 10px;
+  background-color: #4caf50; /* verde aprobado */
   transition: width 0.4s ease;
 }
 
-#progreso-texto {
-  margin-top: 0.5rem;
+#porcentajeTexto {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
   font-weight: bold;
-  text-align: center;
 }
 
 /* ====== Contenedor principal de malla ====== */
