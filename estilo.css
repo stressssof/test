@@ -1,28 +1,29 @@
+/* ====== Variables: Modo claro por defecto ====== */
 :root {
-  fondo: #fdf6fb;
-  texto: #2a003f;
-  materia: #ffe6f2;
-  materia-aprobada: #c28fef;
-  materia-bloqueada: #e0e0e0;
-  tooltip-bg: #9333ea;
-  boton-bg: #d8b4fe;
-  boton-texto: #3b0764;
-  fuente: 'Poppins', sans-serif;
+  --fondo: #fdf6fb;
+  --texto: #2a003f;
+  --materia: #ffe6f2;
+  --materia-aprobada: #c28fef;
+  --materia-bloqueada: #e0e0e0;
+  --tooltip-bg: #9333ea;
+  --boton-bg: #d8b4fe;
+  --boton-texto: #3b0764;
+  --fuente: 'Poppins', sans-serif;
 }
 
-/* Modo oscuro */
+/* ====== Modo oscuro ====== */
 body.modo-oscuro {
-  fondo: #1c1b2f;
-  texto: #ffffff;
-  materia: #3b185f;
-  materia-aprobada: #a855f7;
-  materia-bloqueada: #555;
-  tooltip-bg: #c084fc;
-  boton-bg: #6b21a8;
-  boton-texto: #fff;
+  --fondo: #1c1b2f;
+  --texto: #ffffff;
+  --materia: #3b185f;
+  --materia-aprobada: #a855f7;
+  --materia-bloqueada: #555;
+  --tooltip-bg: #c084fc;
+  --boton-bg: #6b21a8;
+  --boton-texto: #fff;
 }
 
-/* Estilos generales */
+/* ====== Estilos generales ====== */
 body {
   font-family: var(--fuente);
   background-color: var(--fondo);
@@ -32,47 +33,33 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* ====== Encabezado ====== */
 header {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background-color: var(--materia-aprobada);
   color: white;
-  text-align: center;
-}
-
-@media (min-width: 600px) {
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-  }
 }
 
 h1 {
   margin: 0;
-  font-size: 1.6rem;
-  text-align: center;
+  font-size: 1.8rem;
 }
 
-/* Controles */
-.controles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
+/* ====== Botones de control ====== */
 .controles button {
   background-color: var(--boton-bg);
   color: var(--boton-texto);
   border: none;
   border-radius: 6px;
   padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  cursor: pointer;
   font-weight: bold;
   font-size: 1rem;
-  cursor: pointer;
   transition: background-color 0.3s;
 }
 
@@ -80,74 +67,72 @@ h1 {
   background-color: var(--tooltip-bg);
   color: white;
 }
-#malla {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
-  justify-content: center;
-}
-#malla > div {
-  flex: 1 1 300px; /* mínimo 300px, pero puede crecer */
-  max-width: 100%;
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  box-sizing: border-box;
-}
-/* Barra de progreso */
+
+/* ====== Barra de progreso ====== */
 #progreso-container {
   width: 100%;
-  background-color: #e5e7eb;
-  padding: 0.5rem;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
 }
 
 #progreso-barra {
-  height: 24px;
-  background-color: var(--materia-aprobada);
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#progreso-completado {
+  height: 100%;
   width: 0%;
-  color: white;
-  text-align: center;
-  border-radius: 6px;
+  background-color: #9333ea;
+  border-radius: 10px;
   transition: width 0.4s ease;
+}
+
+#progreso-texto {
+  margin-top: 0.5rem;
   font-weight: bold;
+  text-align: center;
+}
+
+/* ====== Contenedor principal de malla ====== */
+#malla {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-}
-
-/* Grid de materias */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
-/* Tarjeta de materia */
-.semestre {
-  background: white;
-  border-radius: 12px;
+/* ====== Columna por semestre ====== */
+#malla > .semestre {
+  flex: 1 1 300px;
+  max-width: 100%;
+  background-color: #f3e8ff;
+  border-radius: 10px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* ====== Materia individual ====== */
 .materia {
   background-color: var(--materia);
   padding: 1rem;
-  min-width: 250px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   border-radius: 12px;
+  margin: 0.5rem 0;
   position: relative;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
   text-align: center;
   font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.semestre h2 {
-  text-align: center;
-  color: #6a5acd;
 .materia:hover {
   transform: scale(1.03);
 }
 
-.materia {
 .materia.aprobada {
   background-color: var(--materia-aprobada);
   color: white;
@@ -155,18 +140,11 @@ h1 {
 
 .materia.bloqueada {
   background-color: var(--materia-bloqueada);
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin: 0.5rem 0;
-  padding: 0.6rem;
   color: #888;
   cursor: not-allowed;
-  transition: 0.3s;
 }
 
-.materia.desbloqueada {
-  background-color: var(--materia-desbloqueada);
-  cursor: pointer;
+/* ====== Tooltip para materia bloqueada ====== */
 .tooltip {
   visibility: hidden;
   opacity: 0;
@@ -186,9 +164,6 @@ h1 {
   pointer-events: none;
 }
 
-.materia.aprobada {
-  background-color: var(--materia-aprobada);
-  text-decoration: line-through;
 .materia.bloqueada:hover .tooltip {
   visibility: visible;
   opacity: 1;
