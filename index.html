@@ -2,10 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Malla Curricular - Ingeniería Mecánica</title>
-  <link rel="stylesheet" href="estilo.css" />
+  <link rel="stylesheet" href="estilos.css" />
 </head>
+
 <body>
   <header>
     <h1>Malla Curricular - Ingeniería Mecánica</h1>
@@ -13,14 +14,12 @@
       <button id="modoToggle">Modo Oscuro/Claro</button>
       <button id="reiniciarBtn">Reiniciar Malla</button>
     </div>
+    <div id="barraProgresoContainer">
+      <div id="barraProgreso"><div class="relleno"></div></div>
+    </div>
   </header>
 
-  <div class="progreso-container">
-    <div id="barraProgreso" class="progreso-barra"></div>
-    <span id="porcentajeTexto" class="progreso-texto">0%</span>
-  </div>
-
-  <main id="malla" class="grid"></main>
+  <main id="malla"></main>
 
   <template id="materia-template">
     <div class="materia">
